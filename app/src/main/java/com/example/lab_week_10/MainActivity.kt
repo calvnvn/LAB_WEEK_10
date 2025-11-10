@@ -1,4 +1,4 @@
-package com.example.lab_week_10 // Sesuaikan package Anda
+package com.example.lab_week_10
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
