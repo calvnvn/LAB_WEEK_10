@@ -1,4 +1,4 @@
-package com.example.lab_week_10
+package com.example.lab_week_10 // Sesuaikan package Anda
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,13 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        updateText(viewModel.total)
-
-        findViewById<Button>(R.id.button_increment).setOnClickListener {
-            val newTotal = viewModel.incrementTotal()
-
-            updateText(newTotal)
-        }
+        prepareViewModel()
     }
 
     private fun updateText(total: Int) {
@@ -31,4 +25,13 @@ class MainActivity : AppCompatActivity() {
             getString(R.string.text_total, total)
     }
 
+    private fun prepareViewModel(){
+        viewModel.total.observe(this, {
+            updateText(it)
+        })
+
+        findViewById<Button>(R.id.button_increment).setOnClickListener {
+            viewModel.incrementTotal()
+        }
+    }
 }
