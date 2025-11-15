@@ -34,7 +34,7 @@ class FirstFragment : Fragment() {
 
     private fun prepareViewModel(){
         viewModel.total.observe(viewLifecycleOwner, {
-            updateText(it) // [cite: 272]
+            updateText(it)
         })
     }
 }
